@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   const downloadUrl = "https://new-1xbet.com/mobile?bf=f6daf55002fd4_11055021235";
@@ -84,7 +85,29 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MobileApplication",
+            "name": "1xBet",
+            "operatingSystem": "Android, iOS",
+            "applicationCategory": "GameApplication",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "15000000"
+            }
+          })}
+        </script>
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -275,7 +298,7 @@ const Index = () => {
           <p>18+ | Играйте ответственно | Применяются правила и условия</p>
         </footer>
       </div>
-    </div>
+    </>
   );
 };
 
