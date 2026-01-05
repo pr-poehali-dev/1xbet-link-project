@@ -127,6 +127,14 @@ const Index = () => {
             Скачайте мобильное приложение и начните выигрывать уже сегодня
           </p>
 
+          <div className="mb-8 max-w-3xl mx-auto">
+            <img 
+              src="https://cdn.poehali.dev/projects/e02ef662-b580-4a1f-ad18-1be6ee49a722/files/0fd9e175-50de-427f-b935-83988f880b0f.jpg" 
+              alt="1xBet приложение на смартфоне" 
+              className="rounded-2xl shadow-2xl w-full h-auto"
+            />
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
@@ -164,7 +172,16 @@ const Index = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="mb-16">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <img 
+                src="https://cdn.poehali.dev/projects/e02ef662-b580-4a1f-ad18-1be6ee49a722/files/0d54c0e1-e1c4-431e-86d4-64e729242e8c.jpg" 
+                alt="Ставки на спорт" 
+                className="rounded-2xl shadow-xl w-full h-auto"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((feature, index) => (
             <Card 
               key={index} 
@@ -177,6 +194,8 @@ const Index = () => {
               <p className="text-muted-foreground">{feature.description}</p>
             </Card>
           ))}
+            </div>
+          </div>
         </div>
 
         <div className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl p-8 md:p-12 mb-16 border border-primary/30">
@@ -247,34 +266,44 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <Card className="p-8 bg-card border-border/50">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Icon name="Star" size={24} className="text-primary" />
+        <div className="grid md:grid-cols-2 gap-8 mb-16 items-center">
+          <div>
+            <Card className="p-8 bg-card border-border/50 mb-6">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name="Star" size={24} className="text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xl mb-2 text-foreground">Высокие коэффициенты</h4>
+                  <p className="text-muted-foreground">
+                    Одни из самых выгодных коэффициентов на рынке. Увеличьте свои выигрыши!
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-xl mb-2 text-foreground">Высокие коэффициенты</h4>
-                <p className="text-muted-foreground">
-                  Одни из самых выгодных коэффициентов на рынке. Увеличьте свои выигрыши!
-                </p>
-              </div>
-            </div>
-          </Card>
+            </Card>
 
-          <Card className="p-8 bg-card border-border/50">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Icon name="CreditCard" size={24} className="text-secondary" />
+            <Card className="p-8 bg-card border-border/50">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name="CreditCard" size={24} className="text-secondary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xl mb-2 text-foreground">Быстрые выплаты</h4>
+                  <p className="text-muted-foreground">
+                    Вывод средств в течение 15 минут. Все популярные способы оплаты.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-xl mb-2 text-foreground">Быстрые выплаты</h4>
-                <p className="text-muted-foreground">
-                  Вывод средств в течение 15 минут. Все популярные способы оплаты.
-                </p>
-              </div>
-            </div>
-          </Card>
+            </Card>
+          </div>
+
+          <div>
+            <img 
+              src="https://cdn.poehali.dev/projects/e02ef662-b580-4a1f-ad18-1be6ee49a722/files/a639269a-fc13-48d9-891a-e84cee0f8581.jpg" 
+              alt="Выигрыш в 1xBet" 
+              className="rounded-2xl shadow-xl w-full h-auto"
+            />
+          </div>
         </div>
 
         <div className="text-center bg-gradient-to-r from-primary to-secondary p-12 rounded-3xl shadow-2xl">
