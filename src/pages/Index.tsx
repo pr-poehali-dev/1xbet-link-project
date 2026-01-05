@@ -84,6 +84,31 @@ const Index = () => {
     }
   ];
 
+  const faqItems = [
+    {
+      question: "Безопасно ли скачивать приложение?",
+      answer: "Да! Мы предоставляем прямую официальную ссылку на загрузку. Приложение проверено антивирусами и не содержит вредоносного ПО. Все данные защищены SSL-шифрованием."
+    },
+    {
+      question: "Как получить бонус 500€?",
+      answer: "Скачайте приложение, зарегистрируйтесь и пополните счёт. Бонус начисляется автоматически на первый депозит новым игрокам."
+    },
+    {
+      question: "Какие устройства поддерживаются?",
+      answer: "Приложение работает на Android (версия 5.0+) и iOS (версия 11.0+). Также доступна веб-версия для всех браузеров."
+    },
+    {
+      question: "Как быстро выводятся деньги?",
+      answer: "Вывод средств обрабатывается в течение 15 минут. Доступны все популярные способы: карты, электронные кошельки, криптовалюта."
+    },
+    {
+      question: "Это официальная ссылка?",
+      answer: "Да! Это прямая официальная ссылка на 1xBet. Никаких посредников и перенаправлений. Гарантируем безопасность загрузки."
+    }
+  ];
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <>
       <Helmet>
@@ -303,6 +328,70 @@ const Index = () => {
               alt="Выигрыш в 1xBet" 
               className="rounded-2xl shadow-xl w-full h-auto"
             />
+          </div>
+        </div>
+
+        <div className="mb-16">
+          <div className="bg-green-500/10 border-2 border-green-500 rounded-2xl p-8 mb-8">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
+                  <Icon name="ShieldCheck" size={32} className="text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xl text-foreground mb-1">100% Безопасно</h4>
+                  <p className="text-muted-foreground">Проверено антивирусами</p>
+                </div>
+              </div>
+              <div className="h-12 w-px bg-border hidden md:block"></div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center">
+                  <Icon name="Link" size={32} className="text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xl text-foreground mb-1">Прямая ссылка</h4>
+                  <p className="text-muted-foreground">Официальный источник 1xBet</p>
+                </div>
+              </div>
+              <div className="h-12 w-px bg-border hidden md:block"></div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center">
+                  <Icon name="Lock" size={32} className="text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xl text-foreground mb-1">SSL Шифрование</h4>
+                  <p className="text-muted-foreground">Защита данных</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-center mb-8 text-foreground">
+            Частые вопросы
+          </h3>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqItems.map((item, index) => (
+              <Card key={index} className="overflow-hidden">
+                <button
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-muted/50 transition-colors"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                >
+                  <h4 className="font-bold text-lg text-foreground pr-4">{item.question}</h4>
+                  <Icon 
+                    name={openFaq === index ? "ChevronUp" : "ChevronDown"} 
+                    size={24} 
+                    className="text-primary flex-shrink-0"
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6 text-muted-foreground animate-fade-in">
+                    {item.answer}
+                  </div>
+                )}
+              </Card>
+            ))}
           </div>
         </div>
 
