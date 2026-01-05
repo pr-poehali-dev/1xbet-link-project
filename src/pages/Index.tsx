@@ -6,12 +6,12 @@ import { Helmet } from "react-helmet";
 
 const Index = () => {
   const downloadUrl = "https://new-1xbet.com/mobile?bf=f6daf55002fd4_11055021235";
-  const [downloads, setDownloads] = useState(2847521);
+  const [downloads, setDownloads] = useState(12483);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDownloads(prev => prev + Math.floor(Math.random() * 3) + 1);
-    }, 3000);
+      setDownloads(prev => prev + Math.floor(Math.random() * 2) + 1);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -129,7 +129,7 @@ const Index = () => {
 
           <div className="mb-8 max-w-3xl mx-auto">
             <img 
-              src="https://cdn.poehali.dev/projects/e02ef662-b580-4a1f-ad18-1be6ee49a722/files/0fd9e175-50de-427f-b935-83988f880b0f.jpg" 
+              src="https://cdn.poehali.dev/projects/e02ef662-b580-4a1f-ad18-1be6ee49a722/files/8df0a678-488f-4e48-bc08-391e9b409a71.jpg" 
               alt="1xBet приложение на смартфоне" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
