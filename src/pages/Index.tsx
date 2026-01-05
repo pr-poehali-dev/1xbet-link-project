@@ -108,7 +108,7 @@ const Index = () => {
         </script>
       </Helmet>
       <div className="min-h-screen bg-gradient-to-b from-background to-muted">
-      <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
@@ -297,6 +297,7 @@ const Index = () => {
         <footer className="mt-16 text-center text-muted-foreground text-sm">
           <p>18+ | Играйте ответственно | Применяются правила и условия</p>
         </footer>
+        </div>
       </div>
     </>
   );
