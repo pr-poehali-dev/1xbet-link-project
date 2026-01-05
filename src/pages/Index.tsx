@@ -1,9 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const downloadUrl = "https://new-1xbet.com/mobile?bf=f6daf55002fd4_11055021235";
+  const [downloads, setDownloads] = useState(2847521);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDownloads(prev => prev + Math.floor(Math.random() * 3) + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const features = [
     {
@@ -46,6 +55,34 @@ const Index = () => {
     }
   ];
 
+  const stats = [
+    { value: "15M+", label: "Активных пользователей", icon: "Users" },
+    { value: "€2.5B+", label: "Выплачено выигрышей", icon: "TrendingUp" },
+    { value: "40+", label: "Видов спорта", icon: "Trophy" },
+    { value: "24/7", label: "Поддержка клиентов", icon: "Headphones" }
+  ];
+
+  const reviews = [
+    {
+      name: "Алексей М.",
+      rating: 5,
+      text: "Отличное приложение! Высокие коэффициенты и быстрые выплаты. Пользуюсь уже 2 года.",
+      date: "2 дня назад"
+    },
+    {
+      name: "Марина К.",
+      rating: 5,
+      text: "Бонус получила сразу после регистрации. Интерфейс понятный, всё работает отлично!",
+      date: "5 дней назад"
+    },
+    {
+      name: "Дмитрий П.",
+      rating: 5,
+      text: "Лучшая букмекерская контора! Live-ставки просто огонь, рекомендую всем.",
+      date: "1 неделю назад"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-4 py-8">
@@ -82,9 +119,29 @@ const Index = () => {
               <span className="font-bold text-secondary text-lg">Бонус 500€</span>
             </div>
           </div>
+
+          <div className="mt-8 flex items-center justify-center gap-2 text-muted-foreground">
+            <Icon name="TrendingUp" size={20} className="text-primary" />
+            <span className="text-lg">
+              Скачиваний сегодня: <span className="font-bold text-primary">{downloads.toLocaleString()}</span>
+            </span>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 animate-slide-up">
+          {stats.map((stat, index) => (
+            <Card 
+              key={index}
+              className="p-6 bg-gradient-to-br from-card to-card/50 border-border/50 text-center hover-scale"
+            >
+              <Icon name={stat.icon} size={32} className="text-primary mx-auto mb-3" />
+              <div className="text-3xl font-bold text-foreground mb-1">{stat.value}</div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            </Card>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {features.map((feature, index) => (
             <Card 
               key={index} 
@@ -137,6 +194,33 @@ const Index = () => {
               <Icon name="Rocket" size={24} className="mr-2" />
               Начать сейчас
             </Button>
+          </div>
+        </div>
+
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">
+            Отзывы наших пользователей
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {reviews.map((review, index) => (
+              <Card key={index} className="p-6 bg-card border-border/50 hover-scale">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <Icon name="User" size={20} className="text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">{review.name}</div>
+                    <div className="flex gap-0.5">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Icon key={i} name="Star" size={14} className="text-secondary fill-secondary" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-3">{review.text}</p>
+                <div className="text-xs text-muted-foreground">{review.date}</div>
+              </Card>
+            ))}
           </div>
         </div>
 
